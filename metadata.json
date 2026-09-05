@@ -1,0 +1,8 @@
+{
+  "name": "ShieldBlock Extension Dashboard & Simulator",
+  "description": "High-performance ad blocker, tracker shield, popup defender, and cosmetic element hider extension dashboard and testing simulator.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
