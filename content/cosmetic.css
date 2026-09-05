@@ -1,0 +1,69 @@
+/* ShieldBlock Cosmetic Element Hiding Rules */
+
+/* Standard Ad Containers */
+.ad-container,
+.ad-wrapper,
+.ad-slot,
+.ad-banner,
+.ad-unit,
+.ad-box,
+.ad_box,
+.ad_container,
+.ad_wrapper,
+.adsbygoogle,
+[id*="google_ads"],
+[id*="google_ad"],
+[class*="google-ad"],
+[class*="google_ad"],
+iframe[src*="doubleclick.net"],
+iframe[src*="googlesyndication.com"],
+iframe[src*="amazon-adsystem.com"],
+div[data-ad-unit],
+div[data-ad-slot],
+div[data-ad-client],
+.sponsored-post,
+.sponsored-content,
+.taboola-placeholder,
+.outbrain_widget,
+.outbrain-template,
+#popads-overlay,
+#popcash-overlay,
+.ad-overlay,
+.sticky-ad,
+.bottom-ad-bar,
+.top-ad-bar,
+
+/* YouTube Specific Ad Selectors */
+.video-ads,
+.ytp-ad-module,
+.ytp-ad-overlay-container,
+.ytp-ad-text-inline,
+.ytp-ad-preview-text,
+.ytp-ad-message-container,
+ytd-ad-slot-renderer,
+ytd-in-feed-ad-layout-renderer,
+ytd-banner-promo-renderer,
+ytd-statement-banner-renderer,
+ytd-promoted-sparkles-web-renderer,
+ytd-promoted-video-renderer,
+ytd-display-ad-renderer,
+ytd-compact-promoted-item-renderer,
+ytd-action-companion-ad-renderer,
+#player-ads,
+#masthead-ad,
+
+/* Facebook Specific Ad & Sponsored Selectors */
+[aria-label*="Sponsored"],
+div[data-pagelet*="FeedUnit_Sponsored"],
+div[data-pagelet*="VideoAd"],
+.fb_ad_overlay,
+div[aria-label="Ads"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}

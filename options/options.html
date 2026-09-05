@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShieldBlock - Dashboard & Options</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <img src="../icons/icon-48.png" alt="ShieldBlock" class="brand-icon">
+        <h2>ShieldBlock</h2>
+      </div>
+      <nav class="nav-menu">
+        <button class="nav-btn active" data-tab="filter-rules">
+          <span class="icon">🛡️</span> Filter Lists
+        </button>
+        <button class="nav-btn" data-tab="whitelist">
+          <span class="icon">✅</span> Allowed Sites
+        </button>
+        <button class="nav-btn" data-tab="blocklist">
+          <span class="icon">🚫</span> Custom Blocklist
+        </button>
+        <button class="nav-btn" data-tab="backup-stats">
+          <span class="icon">📊</span> Stats & Backup
+        </button>
+      </nav>
+      <div class="sidebar-footer">
+        <p>Built with ❤️ by <strong>Corey Kiesel</strong></p>
+        <span>ShieldBlock v1.0.0</span>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Filter Rules Tab -->
+      <section id="tab-filter-rules" class="tab-content active">
+        <header class="content-header">
+          <h1>Filter Lists & Rulesets</h1>
+          <p>Enable or disable built-in network filtering categories.</p>
+        </header>
+
+        <div class="ruleset-grid">
+          <div class="card ruleset-card">
+            <div class="ruleset-info">
+              <h3>General Advertisements</h3>
+              <p>Blocks doubleclick, google ads, adnxs, popups, and standard ad network scripts.</p>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="toggle-ads_rules" data-ruleset="ads_rules">
+              <span class="slider round"></span>
+            </label>
+          </div>
+
+          <div class="card ruleset-card">
+            <div class="ruleset-info">
+              <h3>Privacy & Analytics Trackers</h3>
+              <p>Blocks telemetry, google analytics, facebook pixel, hotjar, and tracking beacons.</p>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="toggle-privacy_rules" data-ruleset="privacy_rules">
+              <span class="slider round"></span>
+            </label>
+          </div>
+
+          <div class="card ruleset-card">
+            <div class="ruleset-info">
+              <h3>Popups & Annoyances</h3>
+              <p>Blocks aggressive popunder windows, redirect ads, and intrusive overlays.</p>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="toggle-annoyances_rules" data-ruleset="annoyances_rules">
+              <span class="slider round"></span>
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <!-- Whitelist Tab -->
+      <section id="tab-whitelist" class="tab-content">
+        <header class="content-header">
+          <h1>Allowed Sites (Whitelist)</h1>
+          <p>Ad blocking is paused on these specific domains.</p>
+        </header>
+
+        <div class="card">
+          <div class="add-bar">
+            <input type="text" id="newWhitelistInput" placeholder="Add domain (e.g. example.com)">
+            <button id="addWhitelistBtn" class="btn btn-primary">Add Domain</button>
+          </div>
+          <div class="domain-list" id="whitelistContainer">
+            <!-- Dynamic whitelist items -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Custom Blocklist Tab -->
+      <section id="tab-blocklist" class="tab-content">
+        <header class="content-header">
+          <h1>Custom Blocklist</h1>
+          <p>Add custom domain block rules to prevent requests to specific domains.</p>
+        </header>
+
+        <div class="card">
+          <div class="add-bar">
+            <input type="text" id="newBlocklistInput" placeholder="Add domain to block (e.g. adserver.net)">
+            <button id="addBlocklistBtn" class="btn btn-primary">Block Domain</button>
+          </div>
+          <div class="domain-list" id="blocklistContainer">
+            <!-- Dynamic blocklist items -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Stats & Backup Tab -->
+      <section id="tab-backup-stats" class="tab-content">
+        <header class="content-header">
+          <h1>Statistics & Configuration Backup</h1>
+          <p>Manage your statistics, export configuration, or restore from a backup file.</p>
+        </header>
+
+        <div class="stats-overview-grid">
+          <div class="card stat-box">
+            <span class="stat-number" id="statsTotal">0</span>
+            <span class="stat-title">Total Requests Blocked</span>
+          </div>
+          <div class="card stat-box">
+            <span class="stat-number" id="statsSitesCount">0</span>
+            <span class="stat-title">Tracked Sites</span>
+          </div>
+        </div>
+
+        <div class="card settings-actions-card">
+          <h3>Manage Data & Settings</h3>
+          <div class="action-buttons">
+            <button id="resetStatsBtn" class="btn btn-danger">Reset All Statistics</button>
+            <button id="exportSettingsBtn" class="btn btn-secondary">Export Settings (JSON)</button>
+            <label class="btn btn-secondary file-upload-label">
+              Import Settings (JSON)
+              <input type="file" id="importSettingsFile" accept=".json" style="display:none;">
+            </label>
+          </div>
+          <div id="backupFeedback" class="feedback"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>

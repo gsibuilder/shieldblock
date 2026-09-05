@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShieldBlock Popup</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <!-- Header -->
+    <header class="header">
+      <div class="brand">
+        <img src="../icons/icon-48.png" alt="ShieldBlock Logo" class="logo">
+        <div class="brand-text">
+          <h1>ShieldBlock</h1>
+          <span class="version">v1.0.0</span>
+        </div>
+      </div>
+      <label class="switch" title="Global Toggle">
+        <input type="checkbox" id="globalToggle" checked>
+        <span class="slider round"></span>
+      </label>
+    </header>
+
+    <!-- Site Card -->
+    <div class="card site-card" id="siteCard">
+      <div class="site-info">
+        <span class="site-label">Current Site</span>
+        <h2 id="domainName" class="domain-name">Detecting site...</h2>
+      </div>
+      <button id="whitelistBtn" class="btn btn-pause">
+        <span id="whitelistBtnIcon">⏸</span>
+        <span id="whitelistBtnText">Pause on this site</span>
+      </button>
+    </div>
+
+    <!-- Metrics Stats -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <span class="stat-value" id="siteBlockedCount">0</span>
+        <span class="stat-label">Blocked on Site</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-value" id="totalBlockedCount">0</span>
+        <span class="stat-label">Total Shielded</span>
+      </div>
+    </div>
+
+    <!-- Quick Add Block Rule -->
+    <div class="card quick-add">
+      <label for="customDomainInput" class="input-label">Quick Block Domain</label>
+      <div class="input-group">
+        <input type="text" id="customDomainInput" placeholder="e.g. tracker.com">
+        <button id="addDomainBtn" class="btn btn-primary">Block</button>
+      </div>
+      <div id="quickAddFeedback" class="feedback"></div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <button id="optionsBtn" class="btn-link">⚙️ Options & Dashboard</button>
+      <button id="reloadTabBtn" class="btn-link">🔄 Refresh Tab</button>
+    </footer>
+    <div class="author-tag">Built with ❤️ by <strong>Corey Kiesel</strong></div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
