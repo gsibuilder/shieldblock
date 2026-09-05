@@ -8,9 +8,9 @@ export const RuleExplorer: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
   
-  // URL Simulator state
+  // URL Tester state
   const [testUrl, setTestUrl] = useState('https://doubleclick.net/ad/banner.js');
-  const [simulationResult, setSimulationResult] = useState<{ blocked: boolean; matchedRule?: RuleItem } | null>(null);
+  const [testResult, setTestResult] = useState<{ blocked: boolean; matchedRule?: RuleItem } | null>(null);
 
   useEffect(() => {
     setLoading(true);
@@ -36,7 +36,7 @@ export const RuleExplorer: React.FC = () => {
       return testUrl.includes(filter);
     });
 
-    setSimulationResult({
+    setTestResult({
       blocked: !!matched,
       matchedRule: matched
     });
@@ -49,11 +49,11 @@ export const RuleExplorer: React.FC = () => {
 
   return (
     <div className="max-w-6xl mx-auto space-y-6 my-6">
-      {/* Simulator Card */}
+      {/* URL Tester Card */}
       <div className="bg-gradient-to-r from-indigo-900 to-slate-900 text-white p-6 rounded-2xl shadow-lg">
         <div className="flex items-center space-x-3 mb-4">
           <ShieldAlert className="w-6 h-6 text-indigo-400" />
-          <h2 className="text-lg font-bold">Live URL Blocking Simulator</h2>
+          <h2 className="text-lg font-bold">Live URL Blocking Tester</h2>
         </div>
         <p className="text-sm text-indigo-200 mb-4">Test any URL against ShieldBlock's active DeclarativeNetRequest ruleset to verify blocking behavior.</p>
 
@@ -73,24 +73,24 @@ export const RuleExplorer: React.FC = () => {
           </button>
         </form>
 
-        {simulationResult && (
+        {testResult && (
           <div className={`mt-4 p-4 rounded-xl border flex items-center space-x-3 ${
-            simulationResult.blocked 
+            testResult.blocked 
               ? 'bg-rose-950/40 border-rose-800/60 text-rose-200' 
               : 'bg-emerald-950/40 border-emerald-800/60 text-emerald-200'
           }`}>
-            {simulationResult.blocked ? (
+            {testResult.blocked ? (
               <XCircle className="w-6 h-6 text-rose-400 shrink-0" />
             ) : (
               <CheckCircle className="w-6 h-6 text-emerald-400 shrink-0" />
             )}
             <div>
               <p className="font-bold text-sm">
-                {simulationResult.blocked ? 'REQUEST BLOCKED BY SHIELDBLOCK' : 'REQUEST ALLOWED (NO MATCH)'}
+                {testResult.blocked ? 'REQUEST BLOCKED BY SHIELDBLOCK' : 'REQUEST ALLOWED (NO MATCH)'}
               </p>
-              {simulationResult.matchedRule && (
+              {testResult.matchedRule && (
                 <p className="text-xs text-slate-300 mt-0.5">
-                  Matched Rule ID #{simulationResult.matchedRule.id} with filter <code className="bg-slate-800 px-1.5 py-0.5 rounded text-indigo-300">{simulationResult.matchedRule.condition.urlFilter}</code>
+                  Matched Rule ID #{testResult.matchedRule.id} with filter <code className="bg-slate-800 px-1.5 py-0.5 rounded text-indigo-300">{testResult.matchedRule.condition.urlFilter}</code>
                 </p>
               )}
             </div>

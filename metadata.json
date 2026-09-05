@@ -1,6 +1,6 @@
 {
-  "name": "ShieldBlock Extension Dashboard & Simulator",
-  "description": "High-performance ad blocker, tracker shield, popup defender, and cosmetic element hider extension dashboard and testing simulator.",
+  "name": "ShieldBlock Extension Dashboard & Rule Manager",
+  "description": "High-performance ad blocker, tracker shield, popup defender, and cosmetic element hider extension dashboard and rule manager.",
   "requestFramePermissions": [],
   "majorCapabilities": [
     "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
