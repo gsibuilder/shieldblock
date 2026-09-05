@@ -3,3 +3,9 @@ node_modules/
 *.crx
 *.pem
 .env
+.gradle/
+build/
+app/build/
+local.properties
+android.keystore
+
